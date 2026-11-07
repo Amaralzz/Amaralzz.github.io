@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luiz Amaral</title>
+<meta name="description" content="Estudante de Engenharia de Sistemas na Unimontes. Projetos com Python, dados e Django.">
+<meta property="og:title" content="Luiz Amaral">
+<meta property="og:description" content="Estudante de Engenharia de Sistemas na Unimontes. Projetos com Python, dados e Django.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23222'/><text x='16' y='22' font-family='Georgia,serif' font-size='18' text-anchor='middle' fill='%23fff'>L</text></svg>">
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #222;
+    --soft: #666;
+    --rule: #e5e5e5;
+    --link: #1f4fbf;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141414;
+      --text: #e8e8e8;
+      --soft: #9a9a9a;
+      --rule: #2c2c2c;
+      --link: #8fb0ff;
+      color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 64px 20px 48px;
+  }
+  a { color: var(--link); text-underline-offset: 2px; }
+  a:hover { text-decoration-thickness: 2px; }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; }
+  h2 {
+    font-size: 1rem;
+    margin: 48px 0 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
+  p { margin: 0 0 14px; }
+  .sub { color: var(--soft); margin-bottom: 28px; }
+  .links a { margin-right: 14px; }
+  ul { padding-left: 20px; margin: 0; }
+  li { margin-bottom: 6px; }
+  .project { margin-bottom: 22px; }
+  .project h3 { font-size: 1rem; margin: 0; }
+  .project p { margin: 2px 0 0; }
+  .small { color: var(--soft); font-size: .9rem; }
+  footer { margin-top: 56px; color: var(--soft); font-size: .85rem; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Luiz Amaral</h1>
+<p class="sub">Engenharia de Sistemas · Unimontes · Montes Claros, MG</p>
+
+<p>Oi, eu sou o Luiz. Estou no 5º período de Engenharia de Sistemas na Unimontes e a parte que mais gosto de programar é quando uma análise de dados vira alguma coisa que outra pessoa consegue usar: uma busca, um painel, um site.</p>
+
+<p>Comecei com Python na iniciação científica, analisando dados e montando o site do projeto. Depois aprendi Django por conta própria, fazendo projetos pequenos até chegar nos maiores que estão aqui embaixo.</p>
+
+<p>Estou procurando estágio em dados ou desenvolvimento de software, remoto ou presencial aqui em Montes Claros.</p>
+
+<p class="links">
+  <a href="https://github.com/Amaralzz">GitHub</a>
+  <a href="https://www.linkedin.com/in/luiz-guilherme-amaral-silva-48b873265/">LinkedIn</a>
+  <a href="mailto:guiamaral14501@gmail.com">guiamaral14501@gmail.com</a>
+</p>
+
+<h2>Agora</h2>
+<ul>
+  <li>Terminando o modelo de recomendação do Receitas ML.</li>
+  <li>Montando um painel de notas fiscais para pequenas empresas.</li>
+  <li>Treinando SQL e algoritmos para entrevistas técnicas.</li>
+</ul>
+
+<h2>Projetos</h2>
+
+<div class="project">
+  <h3>Receitas ML</h3>
+  <p>Site de receitas em Django onde você busca pelo que tem na geladeira e recebe sugestões de receitas parecidas. A recomendação usa similaridade de ingredientes com scikit-learn, e antes disso fiz uma análise exploratória dos dados com pandas.</p>
+  <p class="small">Django, scikit-learn, pandas · em andamento</p>
+</div>
+
+<div class="project">
+  <h3>Mesa Digital</h3>
+  <p>Fui bolsista de iniciação científica (FAPEMIG) no GECAD, um grupo que estuda culturas alimentares digitais. Refiz o site do projeto e publiquei as análises de dados com Python e Shiny. Mais tarde passei os gráficos para o Flourish, que era mais fácil de manter no WordPress.</p>
+  <p class="small">Python, Shiny, HTML/CSS, WordPress, Flourish · mar/2025 a fev/2026</p>
+</div>
+
+<div class="project">
+  <h3>Painel de NF-e</h3>
+  <p>Lê os XMLs das notas fiscais eletrônicas de uma pequena empresa e mostra faturamento, fornecedores e produtos num lugar só. A ideia veio de ver como muita empresa pequena ainda faz isso na mão, em planilha.</p>
+  <p class="small">Python · em andamento</p>
+</div>
+
+<div class="project">
+  <h3>Agente de vagas</h3>
+  <p>Um programa que procura vagas de estágio, usa um modelo de linguagem para ler e resumir cada uma e me manda o resultado no Telegram. Fiz esse para aprender a desenvolver junto com IA: o Claude Code escreve, eu reviso e decido o que fica.</p>
+  <p class="small">Python, API do Telegram, LLM · em andamento</p>
+</div>
+
+<div class="project">
+  <h3>Três apps em Django</h3>
+  <p>Foi como aprendi o framework: um gerenciador de tarefas, um controle de gastos pessoais e um analisador de CSV que gera gráficos sozinho a partir do arquivo enviado.</p>
+  <p class="small">Django, pandas, Matplotlib</p>
+</div>
+
+<h2>Formação</h2>
+<ul>
+  <li>Engenharia de Sistemas, Unimontes · previsão de formatura em 2029</li>
+  <li>Santander Bootcamp 2024 (DIO) · backend com Python e Java, SQL/NoSQL, Git</li>
+  <li>Lógica de Programação (GFT/DIO), 2024</li>
+</ul>
+
+<h2>Ferramentas</h2>
+<p>Python (pandas, NumPy, SciPy, Matplotlib, scikit-learn), Django, Shiny, Java (Swing, MVC, DAO), SQL, Git, HTML/CSS e LaTeX para os relatórios da faculdade.</p>
+<p>Inglês entre B2 e C1, espanhol básico.</p>
+
+<footer>Atualizado em novembro de 2026.</footer>
+
+</main>
+</body>
+</html>
