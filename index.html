@@ -8,128 +8,232 @@
 <meta property="og:title" content="Luiz Amaral">
 <meta property="og:description" content="Estudante de Engenharia de Sistemas na Unimontes. Projetos com Python, dados e Django.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23222'/><text x='16' y='22' font-family='Georgia,serif' font-size='18' text-anchor='middle' fill='%23fff'>L</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%23ffd84d'/><text x='16' y='21.5' font-family='Arial,sans-serif' font-weight='700' font-size='14' text-anchor='middle' fill='%231c1c1c'>LA</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #ffffff;
-    --text: #222;
-    --soft: #666;
-    --rule: #e5e5e5;
-    --link: #1f4fbf;
+    --bg: #fbfbf9;
+    --card: #ffffff;
+    --text: #1c1c1c;
+    --soft: #5f6368;
+    --rule: #e7e6e1;
+    --link: #2450c7;
+    --marker: #ffe27a;
+    --tag: #f1f0eb;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #141414;
-      --text: #e8e8e8;
-      --soft: #9a9a9a;
-      --rule: #2c2c2c;
-      --link: #8fb0ff;
+      --bg: #151515;
+      --card: #1d1d1d;
+      --text: #ececec;
+      --soft: #a3a3a3;
+      --rule: #2e2e2e;
+      --link: #93b1ff;
+      --marker: #6b5a12;
+      --tag: #262626;
       color-scheme: dark;
     }
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font: 18px/1.65 "Source Sans 3", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   }
-  main {
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 64px 20px 48px;
-  }
-  a { color: var(--link); text-underline-offset: 2px; }
+  .container { max-width: 760px; margin: 0 auto; padding: 0 22px; }
+  a { color: var(--link); text-underline-offset: 3px; }
   a:hover { text-decoration-thickness: 2px; }
-  h1 { font-size: 1.6rem; margin: 0 0 4px; }
-  h2 {
-    font-size: 1rem;
-    margin: 48px 0 12px;
-    padding-top: 16px;
-    border-top: 1px solid var(--rule);
+  h1, h2, h3, .brand { font-family: "Sora", "Segoe UI", Arial, sans-serif; }
+
+  /* topo */
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; gap: 16px; flex-wrap: wrap; }
+  .brand { font-weight: 700; font-size: 1rem; color: var(--text); text-decoration: none; }
+  nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; font-size: .95rem; }
+  nav ul a { color: var(--soft); text-decoration: none; }
+  nav ul a:hover { color: var(--text); }
+
+  .intro { display: flex; gap: 28px; align-items: center; padding: 48px 0 36px; flex-wrap: wrap; }
+    .avatar {
+    width: 112px; height: 112px; border-radius: 50%; flex-shrink: 0;
+    background: var(--marker); color: #1c1c1c;
+    display: grid; place-items: center;
+    font: 700 2rem "Sora", Arial, sans-serif; object-fit: cover;
   }
-  p { margin: 0 0 14px; }
-  .sub { color: var(--soft); margin-bottom: 28px; }
-  .links a { margin-right: 14px; }
-  ul { padding-left: 20px; margin: 0; }
-  li { margin-bottom: 6px; }
-  .project { margin-bottom: 22px; }
-  .project h3 { font-size: 1rem; margin: 0; }
-  .project p { margin: 2px 0 0; }
-  .small { color: var(--soft); font-size: .9rem; }
-  footer { margin-top: 56px; color: var(--soft); font-size: .85rem; }
+  .intro h1 { font-size: clamp(2rem, 5vw, 2.6rem); line-height: 1.15; margin: 0 0 6px; letter-spacing: -.01em; }
+  .intro .where { color: var(--soft); margin: 0; }
+  .intro > div { min-width: 0; flex: 1 1 280px; }
+
+  .hl { background: linear-gradient(transparent 55%, var(--marker) 55%, var(--marker) 92%, transparent 92%); padding: 0 2px; }
+
+  .about p { margin: 0 0 16px; max-width: 62ch; }
+  .buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+  .btn {
+    display: inline-block; padding: 10px 18px; border-radius: 999px;
+    border: 1.5px solid var(--text); color: var(--text); text-decoration: none; font-weight: 600; font-size: .95rem;
+    transition: background .15s, color .15s;
+  }
+  .btn:hover { background: var(--text); color: var(--bg); }
+  .btn.solid { background: var(--text); color: var(--bg); }
+  .btn.solid:hover { background: transparent; color: var(--text); }
+
+  section { padding-top: 64px; }
+  h2 { font-size: 1.35rem; margin: 0 0 20px; }
+
+  .now { background: var(--card); border: 1px solid var(--rule); border-radius: 14px; padding: 18px 22px; }
+  .now strong { font-family: "Sora", Arial, sans-serif; font-size: .9rem; }
+  .now ul { margin: 8px 0 0; padding-left: 20px; }
+  .now li { margin-bottom: 4px; }
+
+  .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .project {
+    background: var(--card); border: 1px solid var(--rule); border-radius: 14px; padding: 22px;
+    display: flex; flex-direction: column; gap: 10px;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .project:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.06); }
+  .project.big { grid-column: 1 / -1; }
+  .project h3 { font-size: 1.05rem; margin: 0; }
+  .project p { margin: 0; color: var(--text); font-size: 1rem; }
+  .project .status { font-size: .85rem; color: var(--soft); font-style: italic; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 4px; }
+  .tags span { background: var(--tag); border-radius: 6px; padding: 2px 9px; font-size: .82rem; color: var(--soft); }
+  @media (max-width: 620px) { .projects { grid-template-columns: 1fr; } }
+
+  .two-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+  @media (max-width: 620px) { .two-col { grid-template-columns: 1fr; } }
+  .two-col ul { margin: 0; padding-left: 20px; }
+  .two-col li { margin-bottom: 8px; }
+  .two-col .soft { color: var(--soft); font-size: .92rem; display: block; }
+
+  .contact { text-align: left; padding-bottom: 24px; }
+  .contact p { max-width: 55ch; }
+
+  footer { border-top: 1px solid var(--rule); margin-top: 64px; padding: 24px 0 40px; color: var(--soft); font-size: .88rem; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .project, .btn { transition: none; }
+    .project:hover { transform: none; }
+  }
 </style>
 </head>
 <body>
-<main>
+<div class="container">
 
-<h1>Luiz Amaral</h1>
-<p class="sub">Engenharia de Sistemas · Unimontes · Montes Claros, MG</p>
+<nav>
+  <a class="brand" href="#">Luiz Amaral</a>
+  <ul>
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#formacao">Formação</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
 
-<p>Oi, eu sou o Luiz. Estou no 5º período de Engenharia de Sistemas na Unimontes e a parte que mais gosto de programar é quando uma análise de dados vira alguma coisa que outra pessoa consegue usar: uma busca, um painel, um site.</p>
+<header class="intro">
+  <img class="avatar" src="data:image/jpeg;base64,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" alt="Foto de Luiz Amaral" width="112" height="112">
+  <div>
+    <h1>Oi, eu sou o Luiz.</h1>
+    <p class="where">Engenharia de Sistemas · Unimontes · Montes Claros, MG</p>
+  </div>
+</header>
 
-<p>Comecei com Python na iniciação científica, analisando dados e montando o site do projeto. Depois aprendi Django por conta própria, fazendo projetos pequenos até chegar nos maiores que estão aqui embaixo.</p>
-
-<p>Estou procurando estágio em dados ou desenvolvimento de software, remoto ou presencial aqui em Montes Claros.</p>
-
-<p class="links">
-  <a href="https://github.com/Amaralzz">GitHub</a>
-  <a href="https://www.linkedin.com/in/luiz-guilherme-amaral-silva-48b873265/">LinkedIn</a>
-  <a href="mailto:guiamaral14501@gmail.com">guiamaral14501@gmail.com</a>
-</p>
-
-<h2>Agora</h2>
-<ul>
-  <li>Terminando o modelo de recomendação do Receitas ML.</li>
-  <li>Montando um painel de notas fiscais para pequenas empresas.</li>
-  <li>Treinando SQL e algoritmos para entrevistas técnicas.</li>
-</ul>
-
-<h2>Projetos</h2>
-
-<div class="project">
-  <h3>Receitas ML</h3>
-  <p>Site de receitas em Django onde você busca pelo que tem na geladeira e recebe sugestões de receitas parecidas. A recomendação usa similaridade de ingredientes com scikit-learn, e antes disso fiz uma análise exploratória dos dados com pandas.</p>
-  <p class="small">Django, scikit-learn, pandas · em andamento</p>
+<div class="about">
+  <p>Estou no 5º período e a parte que mais gosto de programar é quando <span class="hl">uma análise de dados vira algo que outra pessoa consegue usar</span>: uma busca, um painel, um site.</p>
+  <p>Comecei com Python na iniciação científica, analisando dados e montando o site do projeto. Depois aprendi Django por conta própria, fazendo projetos pequenos até chegar nos maiores que estão aqui embaixo.</p>
+  <p>Estou procurando estágio em <strong>dados</strong> ou <strong>desenvolvimento de software</strong>, remoto ou presencial aqui em Montes Claros.</p>
+  <div class="buttons">
+    <a class="btn solid" href="#contato">Falar comigo</a>
+    <a class="btn" href="https://github.com/Amaralzz">GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/luiz-guilherme-amaral-silva-48b873265/">LinkedIn</a>
+  </div>
 </div>
 
-<div class="project">
-  <h3>Mesa Digital</h3>
-  <p>Fui bolsista de iniciação científica (FAPEMIG) no GECAD, um grupo que estuda culturas alimentares digitais. Refiz o site do projeto e publiquei as análises de dados com Python e Shiny. Mais tarde passei os gráficos para o Flourish, que era mais fácil de manter no WordPress.</p>
-  <p class="small">Python, Shiny, HTML/CSS, WordPress, Flourish · mar/2025 a fev/2026</p>
+<section>
+  <div class="now">
+    <strong>O que estou fazendo agora</strong>
+    <ul>
+      <li>Terminando o modelo de recomendação do Receitas ML.</li>
+      <li>Montando um painel de notas fiscais para pequenas empresas.</li>
+      <li>Treinando SQL e algoritmos para entrevistas técnicas.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="projetos">
+  <h2>Projetos</h2>
+  <div class="projects">
+
+    <article class="project big">
+      <h3>Receitas ML</h3>
+      <p>Site de receitas em Django onde você busca pelo que tem na geladeira e recebe sugestões de receitas parecidas. A recomendação usa similaridade de ingredientes com scikit-learn, e antes disso fiz uma análise exploratória dos dados com pandas.</p>
+      <span class="status">em andamento</span>
+      <div class="tags"><span>Django</span><span>scikit-learn</span><span>pandas</span></div>
+    </article>
+
+    <article class="project big">
+      <h3>Mesa Digital</h3>
+      <p>Fui bolsista de iniciação científica (FAPEMIG) no GECAD, um grupo que estuda culturas alimentares digitais. Refiz o site do projeto e publiquei as análises de dados com Python e Shiny. Mais tarde passei os gráficos para o Flourish, que era mais fácil de manter no WordPress.</p>
+      <span class="status">mar/2025 a fev/2026</span>
+      <div class="tags"><span>Python</span><span>Shiny</span><span>HTML/CSS</span><span>WordPress</span><span>Flourish</span></div>
+    </article>
+
+    <article class="project">
+      <h3>Painel de NF-e</h3>
+      <p>Lê os XMLs das notas fiscais eletrônicas de uma pequena empresa e mostra faturamento, fornecedores e produtos num lugar só.</p>
+      <span class="status">em andamento</span>
+      <div class="tags"><span>Python</span><span>XML</span></div>
+    </article>
+
+    <article class="project">
+      <h3>Agente de vagas</h3>
+      <p>Procura vagas de estágio, usa um modelo de linguagem para resumir cada uma e me manda o resultado no Telegram. Fiz para aprender a desenvolver junto com IA: o Claude Code escreve, eu reviso e decido o que fica.</p>
+      <span class="status">em andamento</span>
+      <div class="tags"><span>Python</span><span>Telegram</span><span>LLM</span></div>
+    </article>
+
+    <article class="project big">
+      <h3>Três apps em Django</h3>
+      <p>Foi como aprendi o framework: um gerenciador de tarefas, um controle de gastos pessoais e um analisador de CSV que gera gráficos sozinho a partir do arquivo enviado.</p>
+      <div class="tags"><span>Django</span><span>pandas</span><span>Matplotlib</span></div>
+    </article>
+
+  </div>
+</section>
+
+<section id="formacao">
+  <div class="two-col">
+    <div>
+      <h2>Formação</h2>
+      <ul>
+        <li>Engenharia de Sistemas, Unimontes<span class="soft">previsão de formatura em 2029</span></li>
+        <li>Santander Bootcamp 2024 (DIO)<span class="soft">backend com Python e Java, SQL/NoSQL, Git</span></li>
+        <li>Lógica de Programação, GFT/DIO<span class="soft">2024</span></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Ferramentas</h2>
+      <ul>
+        <li>Python<span class="soft">pandas, NumPy, SciPy, Matplotlib, scikit-learn</span></li>
+        <li>Web<span class="soft">Django, Shiny, HTML/CSS, WordPress</span></li>
+        <li>Também<span class="soft">Java (Swing, MVC, DAO), SQL, Git, LaTeX</span></li>
+        <li>Idiomas<span class="soft">inglês B2–C1, espanhol básico</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contato" class="contact">
+  <h2>Vamos conversar?</h2>
+  <p>Tenho disponibilidade de 20 a 30 horas por semana para estágio. Pode me chamar por e-mail ou no LinkedIn, respondo rápido.</p>
+  <p><a href="mailto:guiamaral14501@gmail.com">guiamaral14501@gmail.com</a></p>
+</section>
+
+<footer>Luiz Guilherme Amaral Silva · atualizado em novembro de 2026</footer>
+
 </div>
-
-<div class="project">
-  <h3>Painel de NF-e</h3>
-  <p>Lê os XMLs das notas fiscais eletrônicas de uma pequena empresa e mostra faturamento, fornecedores e produtos num lugar só. A ideia veio de ver como muita empresa pequena ainda faz isso na mão, em planilha.</p>
-  <p class="small">Python · em andamento</p>
-</div>
-
-<div class="project">
-  <h3>Agente de vagas</h3>
-  <p>Um programa que procura vagas de estágio, usa um modelo de linguagem para ler e resumir cada uma e me manda o resultado no Telegram. Fiz esse para aprender a desenvolver junto com IA: o Claude Code escreve, eu reviso e decido o que fica.</p>
-  <p class="small">Python, API do Telegram, LLM · em andamento</p>
-</div>
-
-<div class="project">
-  <h3>Três apps em Django</h3>
-  <p>Foi como aprendi o framework: um gerenciador de tarefas, um controle de gastos pessoais e um analisador de CSV que gera gráficos sozinho a partir do arquivo enviado.</p>
-  <p class="small">Django, pandas, Matplotlib</p>
-</div>
-
-<h2>Formação</h2>
-<ul>
-  <li>Engenharia de Sistemas, Unimontes · previsão de formatura em 2029</li>
-  <li>Santander Bootcamp 2024 (DIO) · backend com Python e Java, SQL/NoSQL, Git</li>
-  <li>Lógica de Programação (GFT/DIO), 2024</li>
-</ul>
-
-<h2>Ferramentas</h2>
-<p>Python (pandas, NumPy, SciPy, Matplotlib, scikit-learn), Django, Shiny, Java (Swing, MVC, DAO), SQL, Git, HTML/CSS e LaTeX para os relatórios da faculdade.</p>
-<p>Inglês entre B2 e C1, espanhol básico.</p>
-
-<footer>Atualizado em novembro de 2026.</footer>
-
-</main>
 </body>
 </html>
